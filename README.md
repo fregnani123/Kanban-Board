@@ -2,38 +2,56 @@
 
 Um aplicativo de Kanban completo e responsivo com drag-and-drop para gerenciar tarefas, construído com NestJS no backend e vanilla JavaScript no frontend, com persistência de dados em SQLite3.
 
+---
+
+## 📸 Demonstração
+
+O **Kanban Board** oferece uma interface limpa para o gerenciamento ágil de tarefas.
+
+![Kanban Board]([./public/screenshots/kanban-demo.png](https://github.com/fregnani123/Kanban-Board/blob/main/public/Captura%20de%20tela%202026-05-04%20104419.png))
+
+> [!IMPORTANT]
+> **Status do Projeto:** Este projeto é estritamente para fins de **estudo e portfólio**. Ele **não está em produção** e deve ser executado apenas em ambiente de desenvolvimento local para testes das funcionalidades de NestJS e SQLite3.
+
+---
+
 ## 🎯 Funcionalidades
 
-- ✅ **Drag and Drop**: Mova tarefas entre três colunas (Nova Tarefa, Em Andamento, Concluída)
-- 💾 **Persistência de Dados**: Todas as tarefas são salvas automaticamente em banco de dados SQLite3
-- 📱 **Responsivo**: Interface otimizada para desktop, tablet e mobile
-- ⚡ **Rápido**: Carregamento instantâneo com sincronização em tempo real
-- 🎨 **Design Moderno**: Interface com gradientes e animações suaves
-- 🔄 **Atualização em Tempo Real**: Mudanças salvas automaticamente
+- ✅ **Drag and Drop**: Mova tarefas entre três colunas (Nova Tarefa, Em Andamento, Concluída).
+- 💾 **Persistência de Dados**: Todas as tarefas são salvas automaticamente em banco de dados SQLite3.
+- 📱 **Responsivo**: Interface otimizada para desktop, tablet e mobile.
+- ⚡ **Rápido**: Carregamento instantâneo com sincronização em tempo real.
+- 🎨 **Design Moderno**: Interface com gradientes e animações suaves.
+- 🔄 **Atualização em Tempo Real**: Mudanças salvas automaticamente.
+
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
 ### Backend
-- **NestJS**: Framework moderno para Node.js
-- **TypeORM**: ORM para gerenciar banco de dados
-- **SQLite3**: Banco de dados leve e sem dependências
-- **TypeScript**: Tipagem estática
+- **NestJS**: Framework moderno para Node.js.
+- **TypeORM**: ORM para gerenciar banco de dados.
+- **SQLite3**: Banco de dados leve e sem dependências.
+- **TypeScript**: Tipagem estática.
 
 ### Frontend
-- **HTML5**: Estrutura semântica
-- **CSS3**: Estilo responsivo com Flexbox e Grid
-- **Vanilla JavaScript**: Sem dependências de framework
-- **Drag and Drop API**: Nativa do navegador
+- **HTML5**: Estrutura semântica.
+- **CSS3**: Estilo responsivo com Flexbox e Grid.
+- **Vanilla JavaScript**: Sem dependências de framework.
+- **Drag and Drop API**: Nativa do navegador.
+
+---
 
 ## 📋 Pré-requisitos
 
 - Node.js >= 16.0.0
 - npm >= 8.0.0
 
+---
+
 ## 🚀 Como Executar
 
 ### 1. Instalar Dependências
-
 ```bash
 npm install
 ```
