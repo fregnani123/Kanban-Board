@@ -8,7 +8,7 @@ Um aplicativo de Kanban completo e responsivo com drag-and-drop para gerenciar t
 
 O **Kanban Board** oferece uma interface limpa para o gerenciamento ágil de tarefas.
 
-![Kanban Board]([./public/screenshots/kanban-demo.png](https://github.com/fregnani123/Kanban-Board/blob/main/public/Captura%20de%20tela%202026-05-04%20104419.png))
+![Kanban Board](./public/screenshots/kanban-demo.png](https://github.com/fregnani123/Kanban-Board/blob/main/public/Captura%20de%20tela%202026-05-04%20104419.png))
 
 > [!IMPORTANT]
 > **Status do Projeto:** Este projeto é estritamente para fins de **estudo e portfólio**. Ele **não está em produção** e deve ser executado apenas em ambiente de desenvolvimento local para testes das funcionalidades de NestJS e SQLite3.
