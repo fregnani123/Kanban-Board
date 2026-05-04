@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📋 Kanban Board</h1>
+            <p>Organize suas tarefas com drag and drop</p>
+        </header>
+
+        <div class="create-task">
+            <input 
+                type="text" 
+                id="taskInput" 
+                placeholder="Nova tarefa..." 
+                maxlength="100"
+            >
+            <button id="addBtn" class="btn-add">➕ Adicionar</button>
+        </div>
+
+        <div class="boards-container">
+            <!-- TODO Column -->
+            <div class="board-column">
+                <div class="column-header">
+                    <h2>📝 Nova Tarefa</h2>
+                    <span class="task-count" id="count-todo">0</span>
+                </div>
+                <div class="tasks-container" id="todo-tasks" data-status="todo">
+                    <!-- Tasks will be added here -->
+                </div>
+            </div>
+
+            <!-- IN PROGRESS Column -->
+            <div class="board-column">
+                <div class="column-header">
+                    <h2>⏳ Em Andamento</h2>
+                    <span class="task-count" id="count-in-progress">0</span>
+                </div>
+                <div class="tasks-container" id="in-progress-tasks" data-status="in-progress">
+                    <!-- Tasks will be added here -->
+                </div>
+            </div>
+
+            <!-- COMPLETED Column -->
+            <div class="board-column">
+                <div class="column-header">
+                    <h2>✅ Concluída</h2>
+                    <span class="task-count" id="count-completed">0</span>
+                </div>
+                <div class="tasks-container" id="completed-tasks" data-status="completed">
+                    <!-- Tasks will be added here -->
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>💾 Suas tarefas são salvas automaticamente no banco de dados</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
