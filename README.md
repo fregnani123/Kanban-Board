@@ -1,19 +1,38 @@
-# FlowBoard Pro
+# 📋 Kanban Board - NestJS + SQLite3
 
-Kanban comercial feito com NestJS, TypeORM, SQLite e frontend em HTML/CSS/JavaScript puro.
+Um aplicativo de Kanban completo e responsivo com drag-and-drop para gerenciar tarefas, construído com NestJS no backend e vanilla JavaScript no frontend, com persistência de dados em SQLite3.
 
 ## Funcionalidades
 
-- Quadro Kanban com drag and drop entre A fazer, Em andamento e Concluidas.
-- Criacao rapida de tarefas.
-- Modal completo para criar e editar titulo, descricao, responsavel, prioridade, prazo e status.
-- Busca por titulo, descricao ou responsavel.
-- Filtro por prioridade e ordenacao por data, prazo ou prioridade.
-- Indicadores de total, tarefas em andamento, concluidas e atrasadas.
-- Persistencia em SQLite.
-- Layout responsivo com visual mais proximo de um produto SaaS.
+- ✅ **Drag and Drop**: Mova tarefas entre três colunas (Nova Tarefa, Em Andamento, Concluída)
+- 💾 **Persistência de Dados**: Todas as tarefas são salvas automaticamente em banco de dados SQLite3
+- 📱 **Responsivo**: Interface otimizada para desktop, tablet e mobile
+- ⚡ **Rápido**: Carregamento instantâneo com sincronização em tempo real
+- 🎨 **Design Moderno**: Interface com gradientes e animações suaves
+- 🔄 **Atualização em Tempo Real**: Mudanças salvas automaticamente
 
-## Como executar
+## 🛠️ Tecnologias Utilizadas
+
+### Backend
+- **NestJS**: Framework moderno para Node.js
+- **TypeORM**: ORM para gerenciar banco de dados
+- **SQLite3**: Banco de dados leve e sem dependências
+- **TypeScript**: Tipagem estática
+
+### Frontend
+- **HTML5**: Estrutura semântica
+- **CSS3**: Estilo responsivo com Flexbox e Grid
+- **Vanilla JavaScript**: Sem dependências de framework
+- **Drag and Drop API**: Nativa do navegador
+
+## 📋 Pré-requisitos
+
+- Node.js >= 16.0.0
+- npm >= 8.0.0
+
+## 🚀 Como Executar
+
+### 1. Instalar Dependências
 
 ```bash
 npm install
