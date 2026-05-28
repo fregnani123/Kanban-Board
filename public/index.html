@@ -3,66 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanban Board</title>
+    <title>FlowBoard Pro</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>📋 Kanban Board</h1>
-            <p>Organize suas tarefas com drag and drop</p>
-        </header>
-
-        <div class="create-task">
-            <input 
-                type="text" 
-                id="taskInput" 
-                placeholder="Nova tarefa..." 
-                maxlength="100"
-            >
-            <button id="addBtn" class="btn-add">➕ Adicionar</button>
-        </div>
-
-        <div class="boards-container">
-            <!-- TODO Column -->
-            <div class="board-column">
-                <div class="column-header">
-                    <h2>📝 Nova Tarefa</h2>
-                    <span class="task-count" id="count-todo">0</span>
-                </div>
-                <div class="tasks-container" id="todo-tasks" data-status="todo">
-                    <!-- Tasks will be added here -->
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">F</div>
+                <div>
+                    <strong>FlowBoard</strong>
+                    <span>Workspace</span>
                 </div>
             </div>
 
-            <!-- IN PROGRESS Column -->
-            <div class="board-column">
-                <div class="column-header">
-                    <h2>⏳ Em Andamento</h2>
-                    <span class="task-count" id="count-in-progress">0</span>
-                </div>
-                <div class="tasks-container" id="in-progress-tasks" data-status="in-progress">
-                    <!-- Tasks will be added here -->
-                </div>
-            </div>
+            <nav class="nav-list" aria-label="Navegacao principal">
+                <button class="nav-item active" type="button">Board</button>
+                <button class="nav-item" type="button">Relatorios</button>
+                <button class="nav-item" type="button">Equipe</button>
+                <button class="nav-item" type="button">Configuracoes</button>
+            </nav>
 
-            <!-- COMPLETED Column -->
-            <div class="board-column">
-                <div class="column-header">
-                    <h2>✅ Concluída</h2>
-                    <span class="task-count" id="count-completed">0</span>
-                </div>
-                <div class="tasks-container" id="completed-tasks" data-status="completed">
-                    <!-- Tasks will be added here -->
-                </div>
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                Salvamento automatico
             </div>
-        </div>
+        </aside>
 
-        <footer class="footer">
-            <p>💾 Suas tarefas são salvas automaticamente no banco de dados</p>
-        </footer>
+        <main class="workspace">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">Kanban comercial</p>
+                    <h1>Central de entregas</h1>
+                    <p class="subtitle">Priorize, acompanhe prazos e mantenha o time alinhado.</p>
+                </div>
+                <button class="primary-action" id="newTaskBtn" type="button">Nova tarefa</button>
+            </header>
+
+            <section class="metrics" aria-label="Indicadores do quadro">
+                <article class="metric">
+                    <span>Total</span>
+                    <strong id="metric-total">0</strong>
+                </article>
+                <article class="metric">
+                    <span>Em andamento</span>
+                    <strong id="metric-progress">0</strong>
+                </article>
+                <article class="metric">
+                    <span>Concluidas</span>
+                    <strong id="metric-completed">0</strong>
+                </article>
+                <article class="metric alert">
+                    <span>Atrasadas</span>
+                    <strong id="metric-overdue">0</strong>
+                </article>
+            </section>
+
+            <section class="controls" aria-label="Filtros do quadro">
+                <div class="search-wrap">
+                    <span>Buscar</span>
+                    <input id="searchInput" type="search" placeholder="Titulo, descricao ou responsavel">
+                </div>
+                <label>
+                    Prioridade
+                    <select id="priorityFilter">
+                        <option value="all">Todas</option>
+                        <option value="high">Alta</option>
+                        <option value="medium">Media</option>
+                        <option value="low">Baixa</option>
+                    </select>
+                </label>
+                <label>
+                    Ordenar
+                    <select id="sortSelect">
+                        <option value="recent">Mais recentes</option>
+                        <option value="due">Prazo</option>
+                        <option value="priority">Prioridade</option>
+                    </select>
+                </label>
+            </section>
+
+            <section class="quick-create" aria-label="Criar tarefa">
+                <input type="text" id="taskInput" placeholder="Adicionar tarefa rapidamente..." maxlength="120">
+                <select id="quickPriority" aria-label="Prioridade">
+                    <option value="medium">Media</option>
+                    <option value="high">Alta</option>
+                    <option value="low">Baixa</option>
+                </select>
+                <button id="addBtn" type="button">Adicionar</button>
+            </section>
+
+            <section class="boards-container" aria-label="Quadro Kanban">
+                <div class="board-column" data-column="todo">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-kicker">Backlog</span>
+                            <h2>A fazer</h2>
+                        </div>
+                        <span class="task-count" id="count-todo">0</span>
+                    </div>
+                    <div class="tasks-container" id="todo-tasks" data-status="todo"></div>
+                </div>
+
+                <div class="board-column" data-column="in-progress">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-kicker">Execucao</span>
+                            <h2>Em andamento</h2>
+                        </div>
+                        <span class="task-count" id="count-in-progress">0</span>
+                    </div>
+                    <div class="tasks-container" id="in-progress-tasks" data-status="in-progress"></div>
+                </div>
+
+                <div class="board-column" data-column="completed">
+                    <div class="column-header">
+                        <div>
+                            <span class="column-kicker">Entrega</span>
+                            <h2>Concluidas</h2>
+                        </div>
+                        <span class="task-count" id="count-completed">0</span>
+                    </div>
+                    <div class="tasks-container" id="completed-tasks" data-status="completed"></div>
+                </div>
+            </section>
+        </main>
     </div>
 
+    <div class="modal-backdrop hidden" id="taskModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <form class="task-modal" id="taskForm">
+            <div class="modal-header">
+                <div>
+                    <p class="eyebrow">Detalhes</p>
+                    <h2 id="modalTitle">Nova tarefa</h2>
+                </div>
+                <button class="icon-button" id="closeModalBtn" type="button" aria-label="Fechar">x</button>
+            </div>
+
+            <label>
+                Titulo
+                <input id="modalTitleInput" type="text" maxlength="120" required>
+            </label>
+
+            <label>
+                Descricao
+                <textarea id="modalDescriptionInput" rows="4" placeholder="Contexto, criterios de aceite ou links importantes"></textarea>
+            </label>
+
+            <div class="form-grid">
+                <label>
+                    Responsavel
+                    <input id="modalAssigneeInput" type="text" maxlength="80" placeholder="Nome">
+                </label>
+                <label>
+                    Prioridade
+                    <select id="modalPriorityInput">
+                        <option value="high">Alta</option>
+                        <option value="medium">Media</option>
+                        <option value="low">Baixa</option>
+                    </select>
+                </label>
+                <label>
+                    Prazo
+                    <input id="modalDueDateInput" type="date">
+                </label>
+                <label>
+                    Status
+                    <select id="modalStatusInput">
+                        <option value="todo">A fazer</option>
+                        <option value="in-progress">Em andamento</option>
+                        <option value="completed">Concluida</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="modal-actions">
+                <button class="secondary-action" id="deleteModalBtn" type="button">Excluir</button>
+                <button class="primary-action" type="submit">Salvar tarefa</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="toast hidden" id="toast" role="status"></div>
     <script src="app.js"></script>
 </body>
 </html>

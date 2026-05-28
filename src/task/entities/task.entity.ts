@@ -6,6 +6,12 @@ export enum TaskStatus {
   COMPLETED = 'completed',
 }
 
+export enum TaskPriority {
+  LOW = 'low',
+  MEDIUM = 'medium',
+  HIGH = 'high',
+}
+
 @Entity()
 export class Task {
   @PrimaryGeneratedColumn('uuid')
@@ -16,6 +22,18 @@ export class Task {
 
   @Column({ nullable: true })
   description: string;
+
+  @Column({ nullable: true })
+  assignee: string;
+
+  @Column({
+    type: 'varchar',
+    default: TaskPriority.MEDIUM,
+  })
+  priority: TaskPriority;
+
+  @Column({ type: 'datetime', nullable: true })
+  dueDate: Date;
 
   @Column({
     type: 'varchar',

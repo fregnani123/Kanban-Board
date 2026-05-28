@@ -14,7 +14,7 @@ export class TaskService {
   async create(createTaskDto: CreateTaskDto): Promise<Task> {
     const task = this.taskRepository.create({
       ...createTaskDto,
-      status: TaskStatus.TODO,
+      status: createTaskDto.status ?? TaskStatus.TODO,
     });
     return this.taskRepository.save(task);
   }
@@ -22,7 +22,7 @@ export class TaskService {
   async findAll(): Promise<Task[]> {
     return this.taskRepository.find({
       order: {
-        createdAt: 'ASC',
+        createdAt: 'DESC',
       },
     });
   }
@@ -53,7 +53,7 @@ export class TaskService {
     return this.taskRepository.find({
       where: { status },
       order: {
-        createdAt: 'ASC',
+        createdAt: 'DESC',
       },
     });
   }
